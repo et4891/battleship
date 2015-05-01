@@ -75,10 +75,10 @@ var model = {
         if (direction === 1){
         //    Generate a starting location for a horizontal ship
             row = Math.floor(Math.random() * this.boardSize);
-            col = Math.floor(Math.random() * this.boardSize - this.shipLength);
+            col = Math.floor(Math.random() * (this.boardSize - this.shipLength));
         }else{
         //    Generate a starting location for a vertical ship
-            row = Math.floor(Math.random() * this.boardSize - this.shipLength);
+            row = Math.floor(Math.random() * (this.boardSize - this.shipLength));
             col = Math.floor(Math.random() * this.boardSize);
         }
 
@@ -118,6 +118,9 @@ var controller = {
             var hit = model.fire(location);
             if((hit) && (model.shipsSunk === model.numShips)){
                 view.displayMessage("You sank all my battleships, in " + this.guesses + " guesses");
+                document.getElementById("guessInput").style.display = "none";
+                document.getElementById("fireButton").style.display = "none";
+                document.getElementById("playAgain").style.display = "initial";
             }
         }
     }
@@ -159,6 +162,10 @@ function handleKeyPress(e){
         fireButton.click();
         return false;
     }
+}
+
+function playAgain(){
+    location.reload();
 }
 
 function init(){

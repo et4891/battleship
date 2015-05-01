@@ -42,3 +42,9 @@ form input {
 .miss {
     background: url("miss.png") no-repeat center center;
 }
+#playAgain{
+    background-color: rgb(152, 207, 113);
+    border-color: rgb(83, 175, 19);
+    font-size: 1em;
+    display: none;
+}
