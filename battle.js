@@ -11,14 +11,23 @@ var view = {
 
     displayHit: function(location) {
         var hit = document.getElementById(location);
-        hit.setAttribute("class", "hit");
+        if(hit.getAttribute("class") === null){
+            hit.setAttribute("class", "hit");
+        }else{
+            alert("You already HIT here once already. Try another location!");
+        }
     },
 
     displayMiss: function(location) {
         var miss = document.getElementById(location);
-        miss.setAttribute("class", "miss");
+        if(miss.getAttribute("class") === null){
+            miss.setAttribute("class", "miss");
+        }else{
+            alert("You already missed here once already. Try again");
+        }
     }
-}
+};
+
 /* MODEL */
 var model = {
     boardSize: 7,
@@ -124,7 +133,7 @@ var controller = {
             }
         }
     }
-}
+};
 
 /* OTHER FUNCTIONS */
 function parseGuess(guess){
